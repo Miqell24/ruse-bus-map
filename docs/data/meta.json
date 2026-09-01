@@ -1,0 +1,1269 @@
+{
+  "generatedAt": "2026-09-01T07:33:03.233Z",
+  "bbox": [
+    25.887122,
+    43.763379,
+    26.038483,
+    43.880599
+  ],
+  "badgeBands": [
+    [
+      13,
+      13.6
+    ],
+    [
+      13.6,
+      14.4
+    ],
+    [
+      14.4,
+      15.5
+    ],
+    [
+      15.5,
+      16.8
+    ],
+    [
+      16.8,
+      22
+    ]
+  ],
+  "modes": [
+    {
+      "mode": "bus",
+      "label": "buses & trolleybuses",
+      "color": "#0059a9"
+    }
+  ],
+  "lines": [
+    {
+      "line": "А3",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "Метро",
+          "headsign": "Метро",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 18,
+          "lengthKm": 10.65,
+          "stats": {
+            "observations": 18,
+            "matched": 18,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.003271418133181,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "3"
+    },
+    {
+      "line": "А4",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "ЗЕИМ - запад",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 28,
+          "lengthKm": 13.61,
+          "stats": {
+            "observations": 28,
+            "matched": 28,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.976814476486787,
+            "roundaboutSegs": 52,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 27,
+          "lengthKm": 13.18,
+          "stats": {
+            "observations": 27,
+            "matched": 27,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.845669784401646,
+            "roundaboutSegs": 62,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "4"
+    },
+    {
+      "line": "А5",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Кооперативен пазар (ЖП прелез)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 18,
+          "lengthKm": 7.57,
+          "stats": {
+            "observations": 18,
+            "matched": 18,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.431663255102581,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Централна жп гара, ул. Николаевска",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 20,
+          "lengthKm": 8.59,
+          "stats": {
+            "observations": 20,
+            "matched": 20,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.73964668065233,
+            "roundaboutSegs": 18,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "5"
+    },
+    {
+      "line": "А6",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Асфалтова база - изток",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 21,
+          "lengthKm": 12.79,
+          "stats": {
+            "observations": 21,
+            "matched": 21,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.82192260494411,
+            "roundaboutSegs": 2,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Дом на културата",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 22,
+          "lengthKm": 12.83,
+          "stats": {
+            "observations": 22,
+            "matched": 22,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.702040728548418,
+            "roundaboutSegs": 19,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "6"
+    },
+    {
+      "line": "А8",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гробищен парк Басарбово - вход",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 12.76,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.409214684425843,
+            "roundaboutSegs": 9,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Дом на културата",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 8.49,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.42540792898622,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "8"
+    },
+    {
+      "line": "А10",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Прелеза, Обръщало",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 10.1,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.518586590206161,
+            "roundaboutSegs": 22,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Дом на културата",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 9.53,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.336744482338332,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "10"
+    },
+    {
+      "line": "А11",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Митница (Дунав мост)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 28,
+          "lengthKm": 13.33,
+          "stats": {
+            "observations": 28,
+            "matched": 28,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.681651365313522,
+            "roundaboutSegs": 25,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Ул. Мальовица 1 - север",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 24,
+          "lengthKm": 10.49,
+          "stats": {
+            "observations": 24,
+            "matched": 24,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.689003301521694,
+            "roundaboutSegs": 9,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "11"
+    },
+    {
+      "line": "А12",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Мототехника",
+          "variants": 1,
+          "tripCount": 2,
+          "stops": 19,
+          "lengthKm": 11.02,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.25091934383275,
+            "roundaboutSegs": 42,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Космос (Централна жп гара)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 12,
+          "lengthKm": 5.2,
+          "stats": {
+            "observations": 12,
+            "matched": 12,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.337300795057883,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "12"
+    },
+    {
+      "line": "А15",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Стрелбището",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 21,
+          "lengthKm": 13.66,
+          "stats": {
+            "observations": 21,
+            "matched": 21,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.328533964570224,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Мототехника",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 20,
+          "lengthKm": 13.41,
+          "stats": {
+            "observations": 20,
+            "matched": 20,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.123203408477819,
+            "roundaboutSegs": 4,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "15"
+    },
+    {
+      "line": "А16",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "16-ти километър, Обръщало",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 30,
+          "lengthKm": 19.06,
+          "stats": {
+            "observations": 30,
+            "matched": 30,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.763997031713343,
+            "roundaboutSegs": 11,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 27,
+          "lengthKm": 17.2,
+          "stats": {
+            "observations": 27,
+            "matched": 27,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.003147122762604,
+            "roundaboutSegs": 21,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "16"
+    },
+    {
+      "line": "А18",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Мототехника",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 27,
+          "lengthKm": 14.07,
+          "stats": {
+            "observations": 27,
+            "matched": 27,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.215210830583409,
+            "roundaboutSegs": 21,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 24,
+          "lengthKm": 10.88,
+          "stats": {
+            "observations": 24,
+            "matched": 24,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.550688349697155,
+            "roundaboutSegs": 11,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "18"
+    },
+    {
+      "line": "А19",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Метро",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 20,
+          "lengthKm": 10.08,
+          "stats": {
+            "observations": 20,
+            "matched": 20,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.257339648594595,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Кооперативен пазар (ЖП прелез)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 21,
+          "lengthKm": 10.48,
+          "stats": {
+            "observations": 21,
+            "matched": 21,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.21517927437882,
+            "roundaboutSegs": 26,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "19"
+    },
+    {
+      "line": "А20",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Сент Уан",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.76,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.010737788789719,
+            "roundaboutSegs": 11,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Ж.К. Изток, пл. Прага - юг",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 6.8,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.569310810094352,
+            "roundaboutSegs": 21,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "20"
+    },
+    {
+      "line": "А23",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Дом на културата",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 19,
+          "lengthKm": 8.7,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.727679789602174,
+            "roundaboutSegs": 6,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 19,
+          "lengthKm": 7.92,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.101660061574751,
+            "roundaboutSegs": 2,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "23"
+    },
+    {
+      "line": "А28",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 23,
+          "lengthKm": 12.98,
+          "stats": {
+            "observations": 23,
+            "matched": 23,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.309255123293214,
+            "roundaboutSegs": 38,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Керос (Монтюпе)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 24,
+          "lengthKm": 12.82,
+          "stats": {
+            "observations": 24,
+            "matched": 24,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 11.742908258767248,
+            "roundaboutSegs": 26,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "28"
+    },
+    {
+      "line": "А30",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Хотел Рига",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 8.63,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.142665064101465,
+            "roundaboutSegs": 55,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 19,
+          "lengthKm": 7.63,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.882493467737614,
+            "roundaboutSegs": 30,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "30"
+    },
+    {
+      "line": "А33",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Образцов чифлик",
+          "variants": 1,
+          "tripCount": 2,
+          "stops": 19,
+          "lengthKm": 14.92,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 12.3870790094044,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 19,
+          "lengthKm": 14.84,
+          "stats": {
+            "observations": 19,
+            "matched": 19,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.899967835646658,
+            "roundaboutSegs": 4,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "33"
+    },
+    {
+      "line": "А50",
+      "mode": "bus",
+      "color": "#0059a9",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гробищен парк Басарбово - вход",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 10.21,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.354388850836036,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Автогара Изток - изток",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 18,
+          "lengthKm": 10.56,
+          "stats": {
+            "observations": 18,
+            "matched": 18,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.670504847392876,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "50"
+    },
+    {
+      "line": "Т2",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Мототехника",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 15,
+          "lengthKm": 7.76,
+          "stats": {
+            "observations": 15,
+            "matched": 15,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.505666534221513,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 15,
+          "lengthKm": 7.4,
+          "stats": {
+            "observations": 15,
+            "matched": 15,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.22905939339842,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "2"
+    },
+    {
+      "line": "Т9",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.72,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.641907300741885,
+            "roundaboutSegs": 5,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 12,
+          "lengthKm": 6.4,
+          "stats": {
+            "observations": 12,
+            "matched": 12,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.07795912693196,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "9"
+    },
+    {
+      "line": "Т13",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.66,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 11.686772891854615,
+            "roundaboutSegs": 4,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №28",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.84,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.665252646219606,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "13"
+    },
+    {
+      "line": "Т21",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.26,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.875288378100373,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.39,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.661381096080702,
+            "roundaboutSegs": 22,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "21"
+    },
+    {
+      "line": "Т24",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Блок №28",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 7.17,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.647276835137622,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.8,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 13.106844787763087,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "24"
+    },
+    {
+      "line": "Т27",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Захарен завод (Тутракан №26)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 18,
+          "lengthKm": 8.22,
+          "stats": {
+            "observations": 18,
+            "matched": 18,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 12.570575296372876,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 8.3,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.176318800350823,
+            "roundaboutSegs": 9,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "27"
+    },
+    {
+      "line": "Т29",
+      "mode": "bus",
+      "color": "#149a3f",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Захарен завод (Тутракан №26)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.55,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.273146413848842,
+            "roundaboutSegs": 23,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.64,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 4.915831110211385,
+            "roundaboutSegs": 14,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "29"
+    }
+  ]
+}
