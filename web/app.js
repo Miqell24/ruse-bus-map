@@ -305,7 +305,9 @@ async function init() {
         10, ['case', metroC, 3, 1.1],
         14, ['case', metroC, 7, 2.3],
         17, ['case', metroC, 14, 4.5]],
-      'line-opacity': ['case', metroC, 0.4, 1],
+      // the ribbon is solid here: a red at the family's usual 40 % turned
+      // beige over the Danube (and the graphite before it vanished outright)
+      'line-opacity': ['case', metroC, 0.85, 1],
     },
   }, firstSymbol);
   // Shared bus+trolleybus roadways: green dashes over the navy stroke, so the
