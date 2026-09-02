@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T09:10:47.277Z",
+  "generatedAt": "2026-09-02T09:12:25.819Z",
   "maxSeparate": 4,
   "pitchRatio": 0.5,
   "palette": 66,
@@ -21,8 +21,8 @@
     "А50": "#ff5e9b",
     "А5": "#119efc",
     "G5": "#b20b42",
-    "G4": "#6b5806",
     "Т2": "#c17aef",
+    "G4": "#6b5806",
     "А10": "#a72d06",
     "Т24": "#076734",
     "Т9": "#095d97",
@@ -40,11 +40,11 @@
     "train": "#b11526"
   },
   "stats": {
-    "chains": 272,
-    "bundles": 186,
-    "strands": 4254,
+    "chains": 270,
+    "bundles": 184,
+    "strands": 4158,
     "corridors": 86,
-    "rows": 741,
+    "rows": 736,
     "kmColoured": 216,
     "kmGrey": 32
   }

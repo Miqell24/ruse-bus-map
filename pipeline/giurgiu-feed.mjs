@@ -146,7 +146,16 @@ function route(a, b) {
   let best = null;
   for (const t of targets) if (dist.has(t) && (!best || dist.get(t) < dist.get(best))) best = t;
   if (best === null) throw new Error(`no route ${a.name} → ${b.name}`);
-  return { nodes: pathTo(prev, best), km: dist.get(best) / 1000 };
+  const nodes = pathTo(prev, best);
+  // The shape starts and ends where the POLE projects onto the road, not at
+  // whichever graph node the router set off from — on a long straight
+  // residential way that node can sit 300 m from the pole.
+  const projOf = (cands, node) => {
+    const c = cands.find((k) => { const s = graph.segs[k.segIdx]; return s.a === node || s.b === node; }) || cands[0];
+    const [lon, lat] = proj.toLonLat(c.x, c.y);
+    return [lat, lon];
+  };
+  return { nodes, km: dist.get(best) / 1000, startPt: projOf(ca, nodes[0]), endPt: projOf(cb, best) };
 }
 
 // named poles within `r` m of the path, in path order, one per name
@@ -203,10 +212,14 @@ function buildDirection(timing, timingNames) {
       if (chain[chain.length - 1] !== st) chain.push(st);
     }
     if (chain[chain.length - 1] !== timing[i + 1]) chain.push(timing[i + 1]);
-    const pts = r.nodes.map(nodeLL);
-    const last = shape[shape.length - 1];
-    if (last && pts.length && last[0] === pts[0][0] && last[1] === pts[0][1]) pts.shift();
-    shape.push(...pts);
+    const pts = [r.startPt, ...r.nodes.map(nodeLL), r.endPt];
+    // drop repeats: the previous leg's end point, and a node that coincides
+    // with a projection point
+    for (const pt of pts) {
+      const last = shape[shape.length - 1];
+      if (last && metres(last, pt) < 1) continue;
+      shape.push(pt);
+    }
   }
   return { chain, shape, km };
 }
