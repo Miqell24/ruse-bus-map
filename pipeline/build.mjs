@@ -140,7 +140,9 @@ const LBL = new Map();
 // The train gets the metro treatment — the wide ribbon, full station discs,
 // always-on station names: own right of way, no street running.
 const isRailTrunk = (l) => l === 'train';
-const RAIL_INK = '#4b4f57', RAIL_DARK = '#1f2226';
+// Red, the family's rail-on-its-own-right-of-way colour here (no tram in
+// either town to claim it); the graphite tried first vanished on the base map.
+const RAIL_INK = '#d6212b', RAIL_DARK = '#7c1116';
 
 // Two towns, one map: which side of the river a line belongs to. The panel
 // groups the chips by it — both towns number their buses from 1, so a bare

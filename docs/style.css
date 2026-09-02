@@ -120,7 +120,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; }
 .sw.line.tram { background: #d6212b; }
 .sw.line.mline { background: #e8a000; }
 /* metro swatch: the five Metrorex line colors side by side */
-.sw.line.metro { background: #4b4f57; }
+.sw.line.metro { background: #d6212b; }
 .sublegend { font-size: 11.5px; color: #445; padding-left: 26px; }
 /* sublegends mix text with inline color chips — flex would scatter them */
 .legend li.sublegend { display: block; }

@@ -565,7 +565,6 @@ async function init() {
   // color pair — regular: white fill + colored rim; terminus: filled + dark rim.
   const PALETTE = [
     [KMK, KMK_DARK], [TROLLEY_GREEN, '#0a5121'], [MLINE_YELLOW, '#7d5600'],
-    ['#4b4f57', '#1f2226'], // the Giurgiu–Ruse train (station discs need their colour registered)
     ['#d6212b', '#7c1116'],
     // the official TfL line colours (uppercase — exactly as the pipeline emits
     // them). The styleimagemissing fallback below covers anything missed, but a

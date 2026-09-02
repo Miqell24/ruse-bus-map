@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T08:25:09.260Z",
+  "generatedAt": "2026-09-02T08:40:11.880Z",
   "bbox": [
     25.887122,
     43.763379,
@@ -37,7 +37,7 @@
     {
       "mode": "tram",
       "label": "train",
-      "color": "#4b4f57"
+      "color": "#d6212b"
     }
   ],
   "lines": [
@@ -1687,7 +1687,7 @@
     {
       "line": "train",
       "mode": "tram",
-      "color": "#4b4f57",
+      "color": "#d6212b",
       "op": "rail",
       "opName": "Train — CFR Călători / БДЖ",
       "dirs": [
