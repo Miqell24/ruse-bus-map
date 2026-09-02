@@ -109,7 +109,8 @@ class S(osmium.SimpleHandler):
         s_, n_, w_, e_ = STOP_BOX          # (south, north, west, east)
         if not (s_ <= la <= n_ and w_ <= lo <= e_):
             return
-        out_stops.append({'id': n.id, 'lat': la, 'lon': lo, 'name': name})
+        kind = 'stop_position' if t.get('public_transport') == 'stop_position' and t.get('highway') != 'bus_stop' else 'platform'
+        out_stops.append({'id': n.id, 'lat': la, 'lon': lo, 'name': name, 'kind': kind})
 
 
 for pbf in PBFS:

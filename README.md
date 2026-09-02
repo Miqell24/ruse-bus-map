@@ -106,7 +106,11 @@ timetable means — the prison, the power station, the Kaufland store, a
 street's end — snapped to the nearest road; the table in the script says which,
 one by one), ROUTES between consecutive timing points over the road graph of
 the Romanian tiles with the same Dijkstra the map matcher uses, and picks up
-every named OSM pole sitting on that road, in order. Each direction is routed
+every named OSM pole sitting on that road, in order. Each direction then gets
+its own platform — OSM maps both sides of the street for most stops, and the
+one on the right of the direction of travel is the one that direction serves
+(a stop mapped on one side only, and a timing point that is no pole, is one
+record for both). Each direction is routed
 on its own, so one-way streets are respected on the way back, and the routed
 road goes into the feed as `shapes.txt`, node by node — the GTFS under
 `data/gtfs-giurgiu/` carries the same geometry the map draws, so any viewer

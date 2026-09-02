@@ -21,7 +21,12 @@
 //   2. ROUTES between consecutive timing points over the road graph of the
 //      Romanian tiles (the same Dijkstra the map matcher uses), and picks up
 //      every named OSM pole that sits on that road, in order — the stops the
-//      timetable does not list but the road the bus takes evidently serves;
+//      timetable does not list but the road the bus takes evidently serves.
+//      Each direction then gets ITS OWN platform: OSM maps both sides of the
+//      street for most stops, and the one on the right of the direction of
+//      travel is the one that direction serves (Romania drives on the right);
+//      a stop mapped on one side only, and a timing point that is not a pole
+//      (COMAT, the power station, a street's end), is one record for both;
 //   3. writes routes, trips, stops, stop_times AND shapes: the routed road is
 //      the shape, node by node, so the feed carries the same geometry the map
 //      draws — a viewer that knows nothing of this engine sees the bus on the
@@ -108,29 +113,77 @@ function snapToRoad(lat, lon, r, roadName) {
   return null;
 }
 
-const stops = new Map();   // name → { id, lat, lon, how }
+// Stop records, one per OSM platform node (or per pinned timing point that is
+// no pole), so the same platform used by two lines is one record and the two
+// platforms of one stop are two.
+const stops = new Map();   // record key → { id, lat, lon, name, how }
 let nextId = 1;
-const stopFor = (name) => {
-  if (stops.has(name)) return stops.get(name);
+const fold = (n) => String(n || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+const recordFor = (key, lat, lon, name, how) => {
+  let st = stops.get(key);
+  if (!st) { st = { id: `g${nextId++}`, lat, lon, name, how }; stops.set(key, st); }
+  return st;
+};
+// a timing point as pinned in POINTS — the pole the table names, or the
+// feature snapped to the road
+const pinned = new Map();
+const pinnedFor = (name) => {
+  if (pinned.has(name)) return pinned.get(name);
   const p = POINTS[name];
   if (!p) throw new Error(`no coordinates for timing point „${name}”`);
   let [lat, lon, how, opt] = p;
   if (opt && opt.snap) {
-    const s = snapToRoad(lat, lon, opt.snap, opt.road);
-    if (!s) throw new Error(`${name}: no road within ${opt.snap} m`);
-    log(`  ${name}: pinned ${metres([lat, lon], s).toFixed(0)} m from the feature to the road${opt.road ? ` (${opt.road})` : ''}`);
-    [lat, lon] = s;
+    const sn = snapToRoad(lat, lon, opt.snap, opt.road);
+    if (!sn) throw new Error(`${name}: no road within ${opt.snap} m`);
+    log(`  ${name}: pinned ${metres([lat, lon], sn).toFixed(0)} m from the feature to the road${opt.road ? ` (${opt.road})` : ''}`);
+    [lat, lon] = sn;
   }
-  const st = { id: `g${nextId++}`, lat, lon, name, how };
-  stops.set(name, st);
-  return st;
+  const v = { lat, lon, name, how };
+  pinned.set(name, v);
+  return v;
 };
 
 // the OSM poles of the frame, by position
+// Platforms only — public_transport=stop_position is the point on the axis
+// of the road, not a pole, and mixing the two doubles a stop a few metres
+// apart on one side.
 const osmPoles = JSON.parse(readFileSync(join(ROOT, 'data/osm/giurgiu-names.json'), 'utf8')).elements
   .filter((e) => e.type === 'node' && (e.tags.highway === 'bus_stop' || e.tags.public_transport === 'platform'))
-  .map((e) => ({ name: e.tags.name, lat: e.lat, lon: e.lon, xy: proj.toXY(e.lat, e.lon) }));
-log(`OSM poles in the frame: ${osmPoles.length}`);
+  .map((e) => ({ id: e.id, name: e.tags.name, lat: e.lat, lon: e.lon, xy: proj.toXY(e.lat, e.lon) }));
+const platByName = new Map();
+for (const p of osmPoles) { const k = fold(p.name); if (!platByName.has(k)) platByName.set(k, []); platByName.get(k).push(p); }
+log(`OSM platforms in the frame: ${osmPoles.length} (${platByName.size} names, ${[...platByName.values()].filter((l) => l.length >= 2).length} mapped on both sides)`);
+
+// Where a point stands relative to a path: distance to the nearest segment,
+// and the side — cross < 0 is the RIGHT of the direction of travel (x east,
+// y north).
+function besideOf(pathXY, xy) {
+  let best = null;
+  for (let i = 0; i + 1 < pathXY.length; i++) {
+    const [ax, ay] = pathXY[i], [bx, by] = pathXY[i + 1];
+    const dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy || 1;
+    let t = ((xy[0] - ax) * dx + (xy[1] - ay) * dy) / L2; t = Math.max(0, Math.min(1, t));
+    const px = ax + t * dx, py = ay + t * dy;
+    const dist = Math.hypot(xy[0] - px, xy[1] - py);
+    if (!best || dist < best.dist) best = { dist, cross: dx * (xy[1] - py) - dy * (xy[0] - px), i };
+  }
+  return best;
+}
+// The platform a direction serves: the pole of that name on the right of the
+// path, else the nearest one, else (no pole at all) the pinned point.
+function platformFor(name, pathXY, fallback) {
+  const cands = platByName.get(fold(name)) || [];
+  let best = null;
+  for (const c of cands) {
+    const b = besideOf(pathXY, c.xy);
+    if (!b || b.dist > 60) continue;
+    const score = (b.cross < 0 ? 0 : 1000) + b.dist;
+    if (!best || score < best.score) best = { c, score, right: b.cross < 0 };
+  }
+  if (best) return recordFor(`osm:${best.c.id}`, best.c.lat, best.c.lon, name, `OSM platform ${best.c.id}${best.right ? '' : ' (no pole on the right of this direction; the other side)'}`);
+  if (!fallback) return null;
+  return recordFor(`pin:${name}`, fallback.lat, fallback.lon, name, fallback.how);
+}
 
 // route between two stops: node path over the graph, from the nearest
 // segment endpoints of each
@@ -187,50 +240,44 @@ const csv = (header, rows) => header.join(',') + '\n' + rows.map((r) => r.map(q)
 mkdirSync(GD, { recursive: true });
 
 const routeRows = [], tripRows = [], stRows = [], shapeRows = [];
-const poleStop = new Map(); // OSM pole name → stop record
-const stopForPole = (p) => {
-  if (poleStop.has(p.name)) return poleStop.get(p.name);
-  // a pole of the same name within 100 m is the timing point itself (the
-  // other platform of the same stop, at most) — one record, not two
-  for (const s of stops.values()) if (s.name === p.name && metres([s.lat, s.lon], [p.lat, p.lon]) <= 100) { poleStop.set(p.name, s); return s; }
-  const st = { id: `g${nextId++}`, lat: p.lat, lon: p.lon, name: p.name, how: 'OSM pole on the routed road' };
-  poleStop.set(p.name, st); stops.set(`osm:${p.name}`, st);
-  return st;
-};
 let totalKm = 0;
 // One direction of one line: route the timing points in the order given,
-// pick up the poles on the way, keep the road as the shape.
-function buildDirection(timing, timingNames) {
-  const chain = [timing[0]];
+// pick up the poles on the way, then give every stop of the chain the platform
+// on the right of this direction, and keep the road as the shape.
+function buildDirection(timingNames, allTiming) {
+  const names = [timingNames[0]];
   const shape = [];
   let km = 0;
-  for (let i = 0; i + 1 < timing.length; i++) {
-    const r = route(timing[i], timing[i + 1]);
+  const pathXY = [];
+  for (let i = 0; i + 1 < timingNames.length; i++) {
+    const a = pinnedFor(timingNames[i]), b = pinnedFor(timingNames[i + 1]);
+    const r = route(a, b);
     km += r.km;
-    for (const p of polesAlong(r.nodes, 30, timingNames)) {
-      const st = stopForPole(p);
-      if (chain[chain.length - 1] !== st) chain.push(st);
-    }
-    if (chain[chain.length - 1] !== timing[i + 1]) chain.push(timing[i + 1]);
+    for (const p of polesAlong(r.nodes, 30, allTiming)) if (names[names.length - 1] !== p.name) names.push(p.name);
+    if (names[names.length - 1] !== timingNames[i + 1]) names.push(timingNames[i + 1]);
     const pts = [r.startPt, ...r.nodes.map(nodeLL), r.endPt];
-    // drop repeats: the previous leg's end point, and a node that coincides
-    // with a projection point
     for (const pt of pts) {
       const last = shape[shape.length - 1];
       if (last && metres(last, pt) < 1) continue;
       shape.push(pt);
     }
   }
+  for (const [lat, lon] of shape) pathXY.push(proj.toXY(lat, lon));
+  const chain = [];
+  for (const n of names) {
+    const st = platformFor(n, pathXY, POINTS[n] ? pinnedFor(n) : null);
+    if (st && chain[chain.length - 1] !== st) chain.push(st);
+  }
   return { chain, shape, km };
 }
 for (const L of LINES) {
   routeRows.push([`G${L.code}`, 'TRACUM', L.code, L.name, 3, '']);
-  const timing = L.via.map(stopFor);
   const timingNames = new Set(L.via);
-  const out = buildDirection(timing, timingNames);
-  const back = buildDirection([...timing].reverse(), timingNames);
+  const out = buildDirection(L.via, timingNames);
+  const back = buildDirection([...L.via].reverse(), timingNames);
   totalKm += out.km + back.km;
-  log(`line ${L.code}: ${timing.length} timing points; out ${out.chain.length} stops / ${out.km.toFixed(1)} km, back ${back.chain.length} stops / ${back.km.toFixed(1)} km`);
+  const shared = out.chain.filter((s) => back.chain.includes(s)).length;
+  log(`line ${L.code}: ${L.via.length} timing points; out ${out.chain.length} stops / ${out.km.toFixed(1)} km, back ${back.chain.length} stops / ${back.km.toFixed(1)} km, ${shared} platform(s) shared by both directions`);
   for (const [d, dir] of [[out, '0'], [back, '1']]) {
     const tripId = `G${L.code}-${dir}`;
     const shapeId = `shp-G${L.code}-${dir}`;
@@ -244,7 +291,7 @@ for (const L of LINES) {
   }
 }
 
-const stopRows = [...new Map([...stops.values()].map((s) => [s.id, s])).values()].map((s) => [s.id, '', s.name, s.lat.toFixed(6), s.lon.toFixed(6)]);
+const stopRows = [...stops.values()].map((s) => [s.id, '', s.name, s.lat.toFixed(6), s.lon.toFixed(6)]);
 writeFileSync(join(GD, 'stops.txt'), csv(['stop_id', 'stop_code', 'stop_name', 'stop_lat', 'stop_lon'], stopRows));
 writeFileSync(join(GD, 'routes.txt'), csv(['route_id', 'agency_id', 'route_short_name', 'route_long_name', 'route_type', 'route_color'], routeRows));
 writeFileSync(join(GD, 'trips.txt'), csv(['route_id', 'service_id', 'trip_id', 'trip_headsign', 'direction_id', 'shape_id'], tripRows));
@@ -254,5 +301,5 @@ writeFileSync(join(GD, 'agency.txt'), csv(['agency_id', 'agency_name', 'agency_u
   [['TRACUM', 'TRACUM SA Giurgiu', 'https://primariagiurgiu.ro', 'Europe/Bucharest', 'ro']]));
 writeFileSync(join(GD, 'calendar.txt'), csv(['service_id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'start_date', 'end_date'],
   [['ALL', 1, 1, 1, 1, 1, 1, 1, '20260101', '20271231']]));
-log(`wrote data/gtfs-giurgiu: ${routeRows.length} lines, ${tripRows.length} trips, ${stopRows.length} stops (${Object.keys(POINTS).length} timing points + ${poleStop.size} OSM poles on the way), ${shapeRows.length} shape points, ${totalKm.toFixed(1)} km both ways`);
+log(`wrote data/gtfs-giurgiu: ${routeRows.length} lines, ${tripRows.length} trips, ${stopRows.length} stop records (${[...stops.keys()].filter((k) => k.startsWith('osm:')).length} OSM platforms + ${[...stops.keys()].filter((k) => k.startsWith('pin:')).length} pinned points), ${shapeRows.length} shape points, ${totalKm.toFixed(1)} km both ways`);
 for (const s of stops.values()) if (s.how) log(`  ${s.name}: ${s.how}`);

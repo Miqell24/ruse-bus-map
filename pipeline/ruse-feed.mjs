@@ -109,8 +109,15 @@ if (!existsSync(stopsFile)) {
   console.error('brak data/osm/ruse-stops.json — uruchom `python3 pipeline/pbf-tiles.py`');
   process.exit(1);
 }
-const osmStops = JSON.parse(readFileSync(stopsFile, 'utf8')).stops;
-log(`słupki OSM z nazwą: ${osmStops.length}`);
+const osmAll = JSON.parse(readFileSync(stopsFile, 'utf8')).stops;
+// A stop_position is the point on the axis of the road, not a pole. Where a
+// platform of the same name stands within 60 m it is the same stop twice,
+// and keeping both doubled a stop a few metres apart on one side; where no
+// platform exists it is all OSM knows of that stop and stays.
+const KM0 = (a, b) => Math.hypot((a.lat - b.lat) * 111320, (a.lon - b.lon) * 111320 * Math.cos(a.lat * Math.PI / 180));
+const plats = osmAll.filter((s) => s.kind !== 'stop_position');
+const osmStops = osmAll.filter((s) => s.kind !== 'stop_position' || !plats.some((p) => p.name === s.name && KM0(p, s) < 60));
+log(`słupki OSM z nazwą: ${osmStops.length} (${osmAll.length - osmStops.length} stop_position dublujących peron odrzuconych)`);
 
 // The site's spelling on the left, OSM's on the right. Everything here was
 // checked one by one against the line's own course; nothing is guessed.
@@ -234,6 +241,7 @@ const missing = new Map();
 const usedStops = new Map();
 const routes = [], trips = [], stopTimes = [];
 let kept = 0, dropped = 0;
+let sided = 0;
 
 for (const L of lines) {
   const isTrolley = /^Т/.test(L.name);
@@ -269,6 +277,20 @@ for (const L of lines) {
         });
       }
       seq = layer.reduce((a, b) => (a.cost <= b.cost ? a : b)).path;
+      // The Viterbi minimises distance, which cannot tell the two platforms of
+      // one stop apart (both are on the way). Each direction serves the one on
+      // the RIGHT of its direction of travel (Bulgaria drives on the right), so
+      // where the band holds a same-name sibling within 60 m of the pick, the
+      // right-hand one wins. Direction of travel: previous pick → next pick.
+      for (let i = 0; i < seq.length; i++) {
+        const sib = bands[i].filter((c) => c.name === seq[i].name && KM0(c, seq[i]) < 60);
+        if (sib.length < 2) continue;
+        const from = seq[i - 1] || seq[i], to = seq[i + 1] || seq[i];
+        if (from === to) continue;
+        const dx = (to.lon - from.lon) * Math.cos(from.lat * Math.PI / 180), dy = to.lat - from.lat;
+        const right = sib.filter((c) => dx * (c.lat - from.lat) - dy * (c.lon - from.lon) * Math.cos(from.lat * Math.PI / 180) < 0);
+        if (right.length) { if (!right.includes(seq[i])) sided++; seq[i] = right.reduce((a, b) => (KM0(a, seq[i]) <= KM0(b, seq[i]) ? a : b)); }
+      }
     }
     if (seq.length < 2) { log(`${L.name}/${d}: po geokodowaniu zostało ${seq.length} przystanków — pomijam kierunek`); return; }
     trips.push([L.name, 'ALL', tripId, seq[seq.length - 1].name, String(d % 2), '']);
@@ -278,6 +300,8 @@ for (const L of lines) {
     });
   });
 }
+
+log(`strona jezdni: ${sided} przystanków przeniesionych na peron po prawej stronie jazdy`);
 
 const q = (v) => {
   const s = v === undefined || v === null ? '' : String(v);
