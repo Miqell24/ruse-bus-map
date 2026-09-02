@@ -12,6 +12,7 @@ import { iterCsv, readCsv } from './lib/csv.mjs';
 import { makeProj, resample, nearestOnPolyline, polylineLength } from './lib/geo.mjs';
 import { buildGraph, railKind } from './lib/graph.mjs';
 import { matchShape, extendToStops } from './lib/hmm.mjs';
+import { latinize } from './lib/bulgarian.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -136,13 +137,16 @@ const busList = busArgs.filter((a) => a !== '--all');
 // street shows. The Sofia and Lviv rule.
 
 const LBL = new Map();
-const isRailTrunk = () => false;
+// The train gets the metro treatment — the wide ribbon, full station discs,
+// always-on station names: own right of way, no street running.
+const isRailTrunk = (l) => l === 'train';
+const RAIL_INK = '#4b4f57', RAIL_DARK = '#1f2226';
 
 // Two towns, one map: which side of the river a line belongs to. The panel
 // groups the chips by it — both towns number their buses from 1, so a bare
 // "4" needs its heading to say which "4" (the Randstad and Göteborg panel).
 const LINE_OP = new Map();
-const OP_NAME = { ruse: 'Ruse — Общински Транспорт Русе', giurgiu: 'Giurgiu — TRACUM SA' };
+const OP_NAME = { ruse: 'Ruse — Общински Транспорт Русе', giurgiu: 'Giurgiu — TRACUM SA', rail: 'Train — CFR Călători / БДЖ' };
 
 const ruseKey = (sn, r) => {
   const k = (r.route_id || '').trim();
@@ -178,6 +182,23 @@ const MODES = [{
     { tag: 'gr', dir: 'data/gtfs-giurgiu', routeTypes: ['3'], mapKey: giurgiuKey },
   ],
 }];
+
+// The rail slot: the trains between the two towns — R 1001–1004, IR 1094/1095
+// and IR-N 460/461 over the Danube Bridge, cut to the frame by
+// pipeline/rail-feed.mjs from the community CFR feed (jbb.ghsq.de). One line,
+// `train`, on the railway graph of both banks (pipeline/pbf-rail.py); it rides
+// the 'tram' mode slot and answers to isRailTrunk above, so it is drawn as a
+// ribbon with station discs, the way the family draws suburban rail.
+MODES.push({
+  mode: 'tram', label: 'train', osmFile: 'data/osm/rail.json',
+  graphMode: 'tram', railKeep: new Set(['rail']),
+  color: RAIL_INK, colorDark: RAIL_DARK,
+  all: true, lines: [],
+  feeds: [
+    { tag: 'tr', dir: 'data/gtfs-rail', routeTypes: ['2'],
+      mapKey: () => { LBL.set('train', 'Train'); LINE_OP.set('train', 'rail'); return 'train'; } },
+  ],
+});
 
 // Feed coordinate fixes: poles the GTFS places on the wrong street, keyed by
 // `<feed tag>:<stop_id>` with the coordinates of that stop's node in OSM. A
@@ -1788,8 +1809,20 @@ const BADGE_BANDS = [[13, 13.6], [13.6, 14.4], [14.4, 15.5], [15.5, 16.8], [16.8
 const nameFeatures = mergeRuns(streetFeatures
   .filter((f) => f.properties.name && !f.properties.roundabout && !f.properties.unmapped)
   .map((f) => ({ coords: f.geometry.coordinates, name: f.properties.name, linesKey: f.properties.name, roundabout: 0 })))
-  .map((r) => ({ type: 'Feature', geometry: { type: 'LineString', coordinates: r.coords }, properties: { name: r.name } }));
-log(`Street names: ${nameFeatures.length} named polylines re-joined from ${streetFeatures.filter((f) => f.properties.name).length} runs`);
+  .map((r) => {
+    // Second line of the label: the name transliterated the way Bulgaria signs
+    // its own streets (the Streamlined System, see lib/bulgarian.mjs — the
+    // Sofia rule, family-wide for Cyrillic). Giurgiu's names are Latin
+    // already and stay single-line: latinize() returns them unchanged.
+    const latin = latinize(r.name);
+    return {
+      type: 'Feature',
+      geometry: { type: 'LineString', coordinates: r.coords },
+      properties: { name: r.name, ...(latin && latin !== r.name ? { latin } : {}) },
+    };
+  });
+log(`Street names: ${nameFeatures.length} named polylines re-joined from ${streetFeatures.filter((f) => f.properties.name).length} runs` +
+    ` (${nameFeatures.filter((f) => f.properties.latin).length} with a Latin second line)`);
 
 let bLonMin = Infinity, bLonMax = -Infinity, bLatMin = Infinity, bLatMax = -Infinity;
 for (const f of routeFeatures) for (const [lon, lat] of f.geometry.coordinates) {

@@ -213,7 +213,7 @@ async function init() {
   const nTro = meta.lines.filter((l) => l.mode === 'bus' && l.color === '#149a3f').length;
   const nMB = meta.lines.filter((l) => l.mode === 'bus' && l.color === '#e8a000').length;
   document.getElementById('count').textContent =
-    `(${nBus} bus & trolleybus lines)`;
+    `(${nBus} bus & trolleybus lines${nTram ? ' · 1 train' : ''})`;
   document.getElementById('stamp').textContent = new Date(meta.generatedAt).toLocaleDateString('en-GB');
   // The pipeline key keeps a disambiguating prefix — route merging, colour
   // lookup and selection all match on it — while everything the panel and the
@@ -241,7 +241,7 @@ async function init() {
   // each line runs on — otherwise it reads "… 3 4 5 1 2 3 4 …" with nothing
   // to say which "4" is which. Ruse first, Giurgiu after. (The Randstad and
   // Göteborg panel, ported.)
-  const OPS = ['ruse', 'giurgiu'];
+  const OPS = ['ruse', 'giurgiu', 'rail'];
   const paintChips = (linesView) => {
     const active = (l) => l.line === state.selected && l.mode === state.selMode;
     const bucket = new Map();
@@ -522,11 +522,21 @@ async function init() {
   // left out — text bent around a 20 m circle is unreadable, and the streets
   // meeting there carry the name anyway.
   map.addSource('street-names', { type: 'geojson', data: 'data/street-names.geojson' });
-  const streetNamesDef = (id, extra) => ({
+  // Two lines wherever the pipeline found a Latin reading: the local name on
+  // top, its transliteration under it — the way Bulgaria writes its own street
+  // plates (the Sofia rule). Giurgiu's streets are Latin already and stay
+  // single-line. The Latin line is set a fifth smaller, because it is the
+  // reading aid and not the name. `latinLine: false` on a layer switches back.
+  const streetNamesDef = (id, extra, latinLine = true) => ({
     id, type: 'symbol', source: 'street-names',
     ...extra,
     layout: {
-      'text-field': ['get', 'name'],
+      'text-field': latinLine
+        ? ['case', ['has', 'latin'],
+            ['format', ['get', 'name'], {}, '\n', {}, ['get', 'latin'], { 'font-scale': 0.8 }],
+            ['get', 'name']]
+        : ['get', 'name'],
+      'text-line-height': 1.1,
       'text-font': [NARROW],
       'symbol-placement': 'line',
       // tighter than the base style's 250 px: a long avenue should repeat its
@@ -534,8 +544,12 @@ async function init() {
       'symbol-spacing': ['interpolate', ['linear'], ['zoom'], 11, 190, 14, 260, 17, 380],
       'text-size': ['interpolate', ['linear'], ['zoom'], 11, 9.5, 14, 11.5, 17, 13.5],
       // beside the stroke, on the opposite side from the line numbers
-      // (those sit 0.6 em above it), so name and numbers never fight
-      'text-offset': [0, 0.9],
+      // (those sit 0.6 em above it), so name and numbers never fight. A
+      // two-line block is centered on its offset, so it is pushed half a line
+      // further out — otherwise the local name would land on the stroke itself
+      'text-offset': latinLine
+        ? ['case', ['has', 'latin'], ['literal', [0, 1.35]], ['literal', [0, 0.9]]]
+        : [0, 0.9],
       'text-max-angle': 32,
       'text-padding': 2,
       'text-pitch-alignment': 'viewport',
@@ -551,6 +565,7 @@ async function init() {
   // color pair — regular: white fill + colored rim; terminus: filled + dark rim.
   const PALETTE = [
     [KMK, KMK_DARK], [TROLLEY_GREEN, '#0a5121'], [MLINE_YELLOW, '#7d5600'],
+    ['#4b4f57', '#1f2226'], // the Giurgiu–Ruse train (station discs need their colour registered)
     ['#d6212b', '#7c1116'],
     // the official TfL line colours (uppercase — exactly as the pipeline emits
     // them). The styleimagemissing fallback below covers anything missed, but a

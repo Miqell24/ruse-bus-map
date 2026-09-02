@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T08:04:54.645Z",
+  "generatedAt": "2026-09-02T08:25:09.450Z",
   "maxSeparate": 4,
   "pitchRatio": 0.5,
   "palette": 66,
@@ -36,15 +36,16 @@
     "G2": "#178786",
     "G1": "#e47e2b",
     "G7": "#52ac3c",
-    "G6": "#1da8b6"
+    "G6": "#1da8b6",
+    "train": "#b11526"
   },
   "stats": {
-    "chains": 265,
-    "bundles": 179,
-    "strands": 4062,
+    "chains": 267,
+    "bundles": 181,
+    "strands": 4064,
     "corridors": 86,
-    "rows": 606,
-    "kmColoured": 188,
+    "rows": 732,
+    "kmColoured": 215,
     "kmGrey": 32
   }
 }

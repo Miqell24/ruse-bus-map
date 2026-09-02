@@ -65,6 +65,22 @@ if [ ! -f data/gtfs-giurgiu/routes.txt ]; then
   node pipeline/giurgiu-feed.mjs
 fi
 
+# 2d) The train — the community CFR feed (jbb.ghsq.de), cut to the frame by
+#     pipeline/rail-feed.mjs; the railway of both banks out of the two extracts.
+if [ ! -f data/ro-railway.gtfs.zip ]; then
+  echo "== ro-railway.gtfs.zip (CFR Călători, jbb.ghsq.de) =="
+  curl -fL --retry 3 --max-time 600 -o data/ro-railway.gtfs.zip "https://jbb.ghsq.de/gtfs/ro-railway.gtfs.zip"
+fi
+if [ ! -f data/osm/rail.json ]; then
+  need_osmium
+  echo "== cutting the railway of both banks =="
+  python3 pipeline/pbf-rail.py
+fi
+if [ ! -f data/gtfs-rail/routes.txt ]; then
+  echo "== CFR feed -> data/gtfs-rail =="
+  node pipeline/rail-feed.mjs
+fi
+
 # 3) MapLibre GL (vendored, no CDN at runtime)
 if [ ! -f web/vendor/maplibre-gl.js ]; then
   echo "== MapLibre GL =="

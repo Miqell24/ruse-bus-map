@@ -118,6 +118,27 @@ extract in `../_pbf/`, cut by `pipeline/pbf-tiles-giurgiu.py`; the bridge is a
 way both extracts carry in full, so the two road graphs meet on it.
 
 
+## The train between the two towns
+
+There is one public link across the river: the CFR Călători / БДЖ trains over
+the Danube Bridge — R 1001–1004 (București – Giurgiu Nord – Giurgiu – Ruse,
+calling at Giurgiu town), IR 1094/1095 and the Sofia trains IR-N 460/461, four
+pairs a day between Giurgiu Nord and Централна гара Русе. Neither operator
+publishes a GTFS; the community feed Jonah Brüchert builds from CFR's
+timetable (jbb.ghsq.de, `ro-railway.gtfs.zip`) carries all eight trips with
+shapes, and `pipeline/rail-feed.mjs` cuts each of them to the part inside the
+frame and writes them as one line, `train`, both directions. It rides the
+railway graph of both banks (`pipeline/pbf-rail.py`, railway=rail out of both
+extracts) and is drawn as a ribbon with station discs, the way the family
+draws suburban rail. Matching error 0.1 m.
+
+## Latin under the Cyrillic
+
+Street names in Ruse carry their Latin reading under the Cyrillic one, in the
+system Bulgaria itself signs its streets with (the Streamlined System,
+`pipeline/lib/bulgarian.mjs` — the Sofia rule); Giurgiu's names are Latin
+already and stay single-line.
+
 ## Build
 
 ```bash

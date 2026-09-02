@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-02T08:04:54.428Z",
+  "generatedAt": "2026-09-02T08:25:09.260Z",
   "bbox": [
     25.887122,
     43.763379,
     26.038483,
-    43.922298
+    43.989678
   ],
   "badgeBands": [
     [
@@ -33,6 +33,11 @@
       "mode": "bus",
       "label": "buses & trolleybuses",
       "color": "#0059a9"
+    },
+    {
+      "mode": "tram",
+      "label": "train",
+      "color": "#4b4f57"
     }
   ],
   "lines": [
@@ -1678,6 +1683,58 @@
         }
       ],
       "label": "29"
+    },
+    {
+      "line": "train",
+      "mode": "tram",
+      "color": "#4b4f57",
+      "op": "rail",
+      "opName": "Train — CFR Călători / БДЖ",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Централна гара Русе",
+          "variants": 4,
+          "tripCount": 1,
+          "stops": 7,
+          "lengthKm": 30.28,
+          "stats": {
+            "observations": 809,
+            "matched": 809,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 0.06725932130084498,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "București (via Giurgiu Nord)",
+          "variants": 4,
+          "tripCount": 1,
+          "stops": 7,
+          "lengthKm": 30.28,
+          "stats": {
+            "observations": 809,
+            "matched": 809,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 0.06786160280892903,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "Train"
     }
   ]
 }
