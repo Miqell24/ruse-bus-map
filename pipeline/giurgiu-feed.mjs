@@ -22,9 +22,11 @@
 //      Romanian tiles (the same Dijkstra the map matcher uses), and picks up
 //      every named OSM pole that sits on that road, in order — the stops the
 //      timetable does not list but the road the bus takes evidently serves;
-//   3. writes routes, trips, stops and stop_times, and NO shapes: the engine
-//      then draws the line the way it draws Ruse itself — the stop chain is the
-//      observation chain and the routing between poles is the geometry.
+//   3. writes routes, trips, stops, stop_times AND shapes: the routed road is
+//      the shape, node by node, so the feed carries the same geometry the map
+//      draws — a viewer that knows nothing of this engine sees the bus on the
+//      street, not a chord between two poles. Each direction is routed on its
+//      own, so one-way streets are respected on the way back.
 //
 // Lines 6 and 7 are loops the timetable writes as A – Piața Centrală – A with
 // a longer way back than out; the way back is not described anywhere, so they
@@ -175,7 +177,7 @@ const q = (v) => { const s = v === undefined || v === null ? '' : String(v); ret
 const csv = (header, rows) => header.join(',') + '\n' + rows.map((r) => r.map(q).join(',')).join('\n') + '\n';
 mkdirSync(GD, { recursive: true });
 
-const routeRows = [], tripRows = [], stRows = [];
+const routeRows = [], tripRows = [], stRows = [], shapeRows = [];
 const poleStop = new Map(); // OSM pole name → stop record
 const stopForPole = (p) => {
   if (poleStop.has(p.name)) return poleStop.get(p.name);
@@ -187,27 +189,45 @@ const stopForPole = (p) => {
   return st;
 };
 let totalKm = 0;
-for (const L of LINES) {
-  routeRows.push([`G${L.code}`, 'TRACUM', L.code, L.name, 3, '']);
-  const timing = L.via.map(stopFor);
-  // outbound chain with the poles the road serves between the timing points
+// One direction of one line: route the timing points in the order given,
+// pick up the poles on the way, keep the road as the shape.
+function buildDirection(timing, timingNames) {
   const chain = [timing[0]];
-  const timingNames = new Set(L.via);
+  const shape = [];
   let km = 0;
   for (let i = 0; i + 1 < timing.length; i++) {
     const r = route(timing[i], timing[i + 1]);
     km += r.km;
-    const between = polesAlong(r.nodes, 30, timingNames);
-    for (const p of between) chain.push(stopForPole(p));
-    chain.push(timing[i + 1]);
+    for (const p of polesAlong(r.nodes, 30, timingNames)) {
+      const st = stopForPole(p);
+      if (chain[chain.length - 1] !== st) chain.push(st);
+    }
+    if (chain[chain.length - 1] !== timing[i + 1]) chain.push(timing[i + 1]);
+    const pts = r.nodes.map(nodeLL);
+    const last = shape[shape.length - 1];
+    if (last && pts.length && last[0] === pts[0][0] && last[1] === pts[0][1]) pts.shift();
+    shape.push(...pts);
   }
-  totalKm += km;
-  log(`line ${L.code}: ${timing.length} timing points, ${chain.length} stops after the road pick-up, ${km.toFixed(1)} km out`);
-  const dirs = [[chain, '0'], [[...chain].reverse(), '1']];
-  for (const [seq, dir] of dirs) {
+  return { chain, shape, km };
+}
+for (const L of LINES) {
+  routeRows.push([`G${L.code}`, 'TRACUM', L.code, L.name, 3, '']);
+  const timing = L.via.map(stopFor);
+  const timingNames = new Set(L.via);
+  const out = buildDirection(timing, timingNames);
+  const back = buildDirection([...timing].reverse(), timingNames);
+  totalKm += out.km + back.km;
+  log(`line ${L.code}: ${timing.length} timing points; out ${out.chain.length} stops / ${out.km.toFixed(1)} km, back ${back.chain.length} stops / ${back.km.toFixed(1)} km`);
+  for (const [d, dir] of [[out, '0'], [back, '1']]) {
     const tripId = `G${L.code}-${dir}`;
-    tripRows.push([`G${L.code}`, 'ALL', tripId, seq[seq.length - 1].name, dir, '']);
-    seq.forEach((s, i) => stRows.push([tripId, s.id, i + 1, '', '']));
+    const shapeId = `shp-G${L.code}-${dir}`;
+    tripRows.push([`G${L.code}`, 'ALL', tripId, d.chain[d.chain.length - 1].name, dir, shapeId]);
+    d.chain.forEach((s, i) => stRows.push([tripId, s.id, i + 1, '', '']));
+    let acc = 0;
+    d.shape.forEach(([lat, lon], i) => {
+      if (i) acc += metres(d.shape[i - 1], [lat, lon]);
+      shapeRows.push([shapeId, lat.toFixed(6), lon.toFixed(6), i + 1, acc.toFixed(0)]);
+    });
   }
 }
 
@@ -216,9 +236,10 @@ writeFileSync(join(GD, 'stops.txt'), csv(['stop_id', 'stop_code', 'stop_name', '
 writeFileSync(join(GD, 'routes.txt'), csv(['route_id', 'agency_id', 'route_short_name', 'route_long_name', 'route_type', 'route_color'], routeRows));
 writeFileSync(join(GD, 'trips.txt'), csv(['route_id', 'service_id', 'trip_id', 'trip_headsign', 'direction_id', 'shape_id'], tripRows));
 writeFileSync(join(GD, 'stop_times.txt'), csv(['trip_id', 'stop_id', 'stop_sequence', 'arrival_time', 'departure_time'], stRows));
+writeFileSync(join(GD, 'shapes.txt'), csv(['shape_id', 'shape_pt_lat', 'shape_pt_lon', 'shape_pt_sequence', 'shape_dist_traveled'], shapeRows));
 writeFileSync(join(GD, 'agency.txt'), csv(['agency_id', 'agency_name', 'agency_url', 'agency_timezone', 'agency_lang'],
   [['TRACUM', 'TRACUM SA Giurgiu', 'https://primariagiurgiu.ro', 'Europe/Bucharest', 'ro']]));
 writeFileSync(join(GD, 'calendar.txt'), csv(['service_id', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'start_date', 'end_date'],
   [['ALL', 1, 1, 1, 1, 1, 1, 1, '20260101', '20271231']]));
-log(`wrote data/gtfs-giurgiu: ${routeRows.length} lines, ${tripRows.length} trips, ${stopRows.length} stops (${Object.keys(POINTS).length} timing points + ${poleStop.size} OSM poles on the way), ${totalKm.toFixed(1)} km outbound`);
+log(`wrote data/gtfs-giurgiu: ${routeRows.length} lines, ${tripRows.length} trips, ${stopRows.length} stops (${Object.keys(POINTS).length} timing points + ${poleStop.size} OSM poles on the way), ${shapeRows.length} shape points, ${totalKm.toFixed(1)} km both ways`);
 for (const s of stops.values()) if (s.how) log(`  ${s.name}: ${s.how}`);

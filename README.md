@@ -106,11 +106,13 @@ timetable means — the prison, the power station, the Kaufland store, a
 street's end — snapped to the nearest road; the table in the script says which,
 one by one), ROUTES between consecutive timing points over the road graph of
 the Romanian tiles with the same Dijkstra the map matcher uses, and picks up
-every named OSM pole sitting on that road, in order. Out comes a GTFS with
-routes, trips, stops and stop_times and NO shapes, drawn the way Ruse is drawn:
-the stop chain is the observation chain and the routing between the poles is
-the geometry. Lines 6 and 7 are loops whose way back the timetable does not
-describe; they are drawn as the out-and-back it does.
+every named OSM pole sitting on that road, in order. Each direction is routed
+on its own, so one-way streets are respected on the way back, and the routed
+road goes into the feed as `shapes.txt`, node by node — the GTFS under
+`data/gtfs-giurgiu/` carries the same geometry the map draws, so any viewer
+sees the bus on the street rather than a chord between two poles. Lines 6 and
+7 are loops whose way back the timetable does not describe; they are drawn as
+the out-and-back it does.
 
 The two networks do not touch: no public line crosses the bridge in either
 operator's data. The Romanian tiles (t5–t8) come from the Geofabrik Romania
