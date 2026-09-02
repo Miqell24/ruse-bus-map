@@ -115,6 +115,10 @@ const busList = busArgs.filter((a) => a !== '--all');
 
 // ONE feed, ONE cfg (buses and trolleybuses share the road graph).
 //
+// TWO towns on one map since 2.09.2026: Ruse on the Bulgarian bank and Giurgiu
+// on the Romanian one, 8 km apart across the Danube Bridge. Two feeds, both
+// written by this project (ruse-feed.mjs, giurgiu-feed.mjs), one network.
+//
 // Ruse publishes no GTFS — it is not among the 14 datasets on the Bulgarian
 // NAP, it is in neither Transitous nor the MobilityDatabase, and trinmo.org's
 // map does not cover it. pipeline/ruse-feed.mjs builds the feed instead, from
@@ -134,22 +138,44 @@ const busList = busArgs.filter((a) => a !== '--all');
 const LBL = new Map();
 const isRailTrunk = () => false;
 
+// Two towns, one map: which side of the river a line belongs to. The panel
+// groups the chips by it — both towns number their buses from 1, so a bare
+// "4" needs its heading to say which "4" (the Randstad and Göteborg panel).
+const LINE_OP = new Map();
+const OP_NAME = { ruse: 'Ruse — Общински Транспорт Русе', giurgiu: 'Giurgiu — TRACUM SA' };
+
 const ruseKey = (sn, r) => {
   const k = (r.route_id || '').trim();
   if (!k) return null;
   if (k !== sn) LBL.set(k, sn);
+  LINE_OP.set(k, 'ruse');
+  return k;
+};
+// Giurgiu's keys carry a G so they never weld onto a Ruse bus of the same
+// number (Ruse А4 and Giurgiu 4 are two lines 8 km apart); the flag shows the
+// bare number, so LBL prints it bare. See pipeline/giurgiu-feed.mjs.
+const giurgiuKey = (sn, r) => {
+  const k = (r.route_id || '').trim();
+  if (!k) return null;
+  LBL.set(k, sn);
+  LINE_OP.set(k, 'giurgiu');
   return k;
 };
 
 const MODES = [{
   mode: 'bus', label: 'buses & trolleybuses', graphMode: 'road',
-  // the city, Srednya Kula and Dolapite west, Basarbovo and Obraztsov Chiflik
-  // south, the Danube bridge north — 2 × 2 tiles
-  osmFiles: Array.from({ length: 4 }, (_, i) => `data/osm/tiles/t${i + 1}.json`),
+  // Ruse: the city, Srednya Kula and Dolapite west, Basarbovo and Obraztsov
+  // Chiflik south, the Danube bridge north — 2 × 2 tiles out of the Bulgarian
+  // extract; Giurgiu: 2 × 2 tiles out of the Romanian one (t5–t8). The bridge
+  // is a way both extracts carry in full, so the two graphs meet on it.
+  osmFiles: Array.from({ length: 8 }, (_, i) => `data/osm/tiles/t${i + 1}.json`),
   color: '#0059a9', colorDark: '#00294f',
   all: busAll, lines: busList.length ? busList : (busAll ? [] : ['Т2']),
   feeds: [
     { tag: 'rs', dir: 'data/gtfs', routeTypes: ['3', '11'], mapKey: ruseKey },
+    // Giurgiu: seven TRACUM lines, timing points pinned to OSM and routed —
+    // no shapes either, the same stop-chain path as Ruse
+    { tag: 'gr', dir: 'data/gtfs-giurgiu', routeTypes: ['3'], mapKey: giurgiuKey },
   ],
 }];
 
@@ -1136,6 +1162,8 @@ async function processMode(cfg) {
     line: L,
     mode: cfg.mode,
     color: colorOf([L]),
+    op: LINE_OP.get(L) ?? 'ruse',
+    opName: OP_NAME[LINE_OP.get(L) ?? 'ruse'],
     dirs: reps.filter((r) => r.line === L).map((r) => ({
       dir: r.dir, headsign: r.headsign, variants: r.variants, tripCount: r.tripCount,
       stops: r.stopSeq.length, lengthKm: Math.round(r.lengthKm * 100) / 100, stats: r.stats,

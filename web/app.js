@@ -175,15 +175,15 @@ async function init() {
   map = new maplibregl.Map({
     container: 'map',
     style,
-    center: [25.9657, 43.8356],
-    zoom: 11.6,
+    center: [25.9660, 43.8700],
+    zoom: 11.5,
     attributionControl: false,
   });
   window.__map = map; // debug/test hook (jumpTo, queryRenderedFeatures)
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: false }), 'top-right');
   map.addControl(new maplibregl.GeolocateControl({ positionOptions: { enableHighAccuracy: true }, trackUserLocation: true, showUserHeading: true, fitBoundsOptions: { maxZoom: 15.5 } }), 'top-right');
   map.addControl(new maplibregl.ScaleControl({ maxWidth: 120 }), 'bottom-left');
-  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Timetables: Общински Транспорт Русе' }));
+  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Timetables: Общински Транспорт Русе · TRACUM SA Giurgiu' }));
 
   const [meta, linesMeta] = await Promise.all([
     fetch('data/meta.json').then((r) => r.json()),
@@ -237,10 +237,30 @@ async function init() {
   const lineColor = (l) => LINE_COLORS[l] || CORRIDOR_INK;
   const LINE_COLOR_MATCH = ['match', ['get', 'line'],
     ...Object.entries(LINE_COLORS).flatMap(([l, c]) => [l, c]), CORRIDOR_INK];
+  // Two towns number their buses from 1, so the cloud is grouped by the bank
+  // each line runs on — otherwise it reads "… 3 4 5 1 2 3 4 …" with nothing
+  // to say which "4" is which. Ruse first, Giurgiu after. (The Randstad and
+  // Göteborg panel, ported.)
+  const OPS = ['ruse', 'giurgiu'];
   const paintChips = (linesView) => {
-    document.getElementById('chips').innerHTML = meta.lines
-      .map((l) => chipHtml(l, linesView ? lineColor(l.line) : l.color, l.line === state.selected && l.mode === state.selMode))
-      .join(' ');
+    const active = (l) => l.line === state.selected && l.mode === state.selMode;
+    const bucket = new Map();
+    for (const l of meta.lines) {
+      const k = l.op ?? 'ruse';
+      if (!bucket.has(k)) bucket.set(k, []);
+      bucket.get(k).push(l);
+    }
+    const section = (key) => {
+      const ls = bucket.get(key);
+      if (!ls || !ls.length) return '';
+      bucket.delete(key);
+      const title = ls[0].opName || key;
+      return `<h3 class="chip-head">${esc(title)} <span class="n">${ls.length}</span></h3>` +
+        `<div class="chip-cloud">${ls.map((l) => chipHtml(l, linesView ? lineColor(l.line) : l.color, active(l))).join(' ')}</div>`;
+    };
+    let html = OPS.map(section).join('');
+    for (const k of [...bucket.keys()]) html += section(k);
+    document.getElementById('chips').innerHTML = html;
   };
 
   // Panel state. `view` is the big one: 'corridors' is this map as it has always
@@ -2155,7 +2175,7 @@ async function init() {
   // NOT fitBounds(meta.bbox): the Tren El Insurgente runs 60 km west to
   // Zinacantepec and RTP reaches Milpa Alta, so fitting the data bbox would
   // open on the volcanoes. Open on the valley, the city filling the frame.
-  map.jumpTo({ center: [25.9657, 43.8356], zoom: 12.2 });
+  map.jumpTo({ center: [25.9660, 43.8700], zoom: 11.5 });
 }
 
 init().catch((err) => {

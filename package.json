@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "description": "Interactive map of Ruse public transport (19 bus + 7 trolleybus lines) — GTFS synthesised from the operator's timetables + OSM geocoding + HMM map matching",
+  "description": "Interactive map of Ruse and Giurgiu public transport — 18 bus + 7 trolleybus lines of Общински Транспорт Русе and the 7 TRACUM lines across the Danube; both feeds written by this project (timetables + OSM), HMM map matching",
   "scripts": {
     "download": "bash pipeline/download.sh",
-    "feed": "node pipeline/ruse-feed.mjs",
+    "feed": "node pipeline/ruse-feed.mjs && node pipeline/giurgiu-feed.mjs",
     "build": "node --max-old-space-size=4096 pipeline/build.mjs --all",
     "lines": "node --max-old-space-size=4096 pipeline/lines.mjs",
     "report": "node pipeline/report-gaps.mjs",

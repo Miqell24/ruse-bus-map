@@ -44,6 +44,27 @@ if [ ! -f data/gtfs/routes.txt ]; then
   node pipeline/ruse-feed.mjs
 fi
 
+# 2b) Giurgiu — the Romanian half of the frame: 2 x 2 road tiles (t5..t8) and
+#     the named features of the town, cut out of the Geofabrik ROMANIA extract
+#     (shared with the other Romanian maps of the family, in ../_pbf/).
+if [ ! -f data/osm/tiles/t8.json ] || [ ! -f data/osm/giurgiu-names.json ]; then
+  need_osmium
+  mkdir -p ../_pbf
+  if [ ! -f ../_pbf/romania-latest.osm.pbf ]; then
+    echo "== Geofabrik romania-latest.osm.pbf =="
+    curl -fL --retry 5 --retry-delay 5 -C - --max-time 3600 -o ../_pbf/romania-latest.osm.pbf \
+      "https://download.geofabrik.de/europe/romania-latest.osm.pbf"
+  fi
+  echo "== cutting the Giurgiu tiles out of the Romanian extract =="
+  python3 pipeline/pbf-tiles-giurgiu.py
+fi
+
+# 2c) Giurgiu GTFS — written from the TRACUM timetable + OSM, not downloaded
+if [ ! -f data/gtfs-giurgiu/routes.txt ]; then
+  echo "== TRACUM timetable + OSM -> data/gtfs-giurgiu =="
+  node pipeline/giurgiu-feed.mjs
+fi
+
 # 3) MapLibre GL (vendored, no CDN at runtime)
 if [ ! -f web/vendor/maplibre-gl.js ]; then
   echo "== MapLibre GL =="

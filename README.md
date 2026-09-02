@@ -1,11 +1,16 @@
-# Ruse Public Transport — interactive map
+# Ruse & Giurgiu Public Transport — interactive map
 
-Interactive, poster-grade map of the public transport network of **Ruse**:
-18 bus lines in the family's navy and 7 trolleybus lines in its green, matched
-onto the OpenStreetMap road graph and drawn one stroke per roadway.
+Interactive, poster-grade map of the public transport of **two towns on one
+frame**: **Ruse** on the Bulgarian bank of the Danube — 18 bus lines in the
+family's navy and 7 trolleybus lines in its green — and **Giurgiu** on the
+Romanian bank, 8 km away across the Danube Bridge, with the 7 bus lines of
+TRACUM SA. Everything matched onto the OpenStreetMap road graph and drawn one
+stroke per roadway.
 
 Part of the same family as the other maps in this account — same engine, same
 visual system, same city switcher.
+
+Live: https://miqell24.github.io/ruse-bus-map/
 
 ## Where the data comes from
 
@@ -83,6 +88,35 @@ never collide (trolleybuses 2, 9, 13, 21, 24, 27, 29; buses 3…50). The mode
 letter therefore stays in the internal key, where it keeps the families apart
 and traceable back to the timetable page, and the map prints the number the
 street shows. The Sofia and Lviv rule.
+
+## Giurgiu — the Romanian half
+
+**Giurgiu publishes no GTFS either.** The municipal operator TRACUM SA (since
+July 2025) publishes one thing: a scanned PDF timetable on the town hall's site
+(primariagiurgiu.ro, *Program Tracum SA*) — seven lines, each as a handful of
+named **timing points** with the minutes between them (4 Pietre · Piața
+Centrală · Port) and nothing else: no stop list, no streets, no coordinates.
+data.gov.ro, gtfs.ro, the MobilityDatabase and Transitous know nothing of the
+town, and OSM holds not one route relation for it. What OSM does hold is 122
+named bus-stop nodes, and the timetable's timing points are poles among them.
+
+`pipeline/giurgiu-feed.mjs` therefore pins every timing point to a coordinate
+(the OSM pole of that name where there is one, otherwise the named feature the
+timetable means — the prison, the power station, the Kaufland store, a
+street's end — snapped to the nearest road; the table in the script says which,
+one by one), ROUTES between consecutive timing points over the road graph of
+the Romanian tiles with the same Dijkstra the map matcher uses, and picks up
+every named OSM pole sitting on that road, in order. Out comes a GTFS with
+routes, trips, stops and stop_times and NO shapes, drawn the way Ruse is drawn:
+the stop chain is the observation chain and the routing between the poles is
+the geometry. Lines 6 and 7 are loops whose way back the timetable does not
+describe; they are drawn as the out-and-back it does.
+
+The two networks do not touch: no public line crosses the bridge in either
+operator's data. The Romanian tiles (t5–t8) come from the Geofabrik Romania
+extract in `../_pbf/`, cut by `pipeline/pbf-tiles-giurgiu.py`; the bridge is a
+way both extracts carry in full, so the two road graphs meet on it.
+
 
 ## Build
 

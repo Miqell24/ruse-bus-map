@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-01T07:33:03.233Z",
+  "generatedAt": "2026-09-02T08:04:54.428Z",
   "bbox": [
     25.887122,
     43.763379,
     26.038483,
-    43.880599
+    43.922298
   ],
   "badgeBands": [
     [
@@ -37,9 +37,375 @@
   ],
   "lines": [
     {
+      "line": "G1",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Port",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 7,
+          "lengthKm": 4.12,
+          "stats": {
+            "observations": 7,
+            "matched": 7,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.6426424463690426,
+            "roundaboutSegs": 24,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "4 Pietre",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 7,
+          "lengthKm": 4.11,
+          "stats": {
+            "observations": 7,
+            "matched": 7,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.827327690451444,
+            "roundaboutSegs": 19,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "1"
+    },
+    {
+      "line": "G2",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "CET",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 8.06,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.094250039719146,
+            "roundaboutSegs": 33,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "COMAT",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 8.1,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.911796768962002,
+            "roundaboutSegs": 60,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "2"
+    },
+    {
+      "line": "G3",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Alexandriei (Peco GPL)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 10,
+          "lengthKm": 5.19,
+          "stats": {
+            "observations": 10,
+            "matched": 10,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.641574584729797,
+            "roundaboutSegs": 48,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "4 Pietre",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 10,
+          "lengthKm": 5.12,
+          "stats": {
+            "observations": 10,
+            "matched": 10,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.95378342823682,
+            "roundaboutSegs": 65,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "3"
+    },
+    {
+      "line": "G4",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "DAS",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 8.08,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.347406773920865,
+            "roundaboutSegs": 19,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Penitenciar",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 8.09,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.860049527955933,
+            "roundaboutSegs": 24,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "4"
+    },
+    {
+      "line": "G5",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Kaufland",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 12,
+          "lengthKm": 7.5,
+          "stats": {
+            "observations": 12,
+            "matched": 12,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.144914615306157,
+            "roundaboutSegs": 52,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Drumul Fermei",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 12,
+          "lengthKm": 7.77,
+          "stats": {
+            "observations": 12,
+            "matched": 12,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.692137529175096,
+            "roundaboutSegs": 38,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "5"
+    },
+    {
+      "line": "G6",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Piața Centrală",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 3,
+          "lengthKm": 1.93,
+          "stats": {
+            "observations": 3,
+            "matched": 3,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.4779979138105155,
+            "roundaboutSegs": 36,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Miron Nicolescu",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 3,
+          "lengthKm": 1.93,
+          "stats": {
+            "observations": 3,
+            "matched": 3,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 3.039073371954387,
+            "roundaboutSegs": 37,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "6"
+    },
+    {
+      "line": "G7",
+      "mode": "bus",
+      "color": "#0059a9",
+      "op": "giurgiu",
+      "opName": "Giurgiu — TRACUM SA",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Piața Centrală",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 5,
+          "lengthKm": 2.22,
+          "stats": {
+            "observations": 5,
+            "matched": 5,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 6.019121648237302,
+            "roundaboutSegs": 24,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "1 Decembrie 1918 (Alunișului)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 5,
+          "lengthKm": 2.21,
+          "stats": {
+            "observations": 5,
+            "matched": 5,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 4.687497939265634,
+            "roundaboutSegs": 19,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "7"
+    },
+    {
       "line": "А3",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "Метро",
@@ -56,7 +422,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 10.003271418133181,
+            "meanError": 10.001018266036017,
             "roundaboutSegs": 13,
             "extStart": 0,
             "extEnd": 0
@@ -69,6 +435,8 @@
       "line": "А4",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -85,7 +453,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.976814476486787,
+            "meanError": 7.9755696071367135,
             "roundaboutSegs": 52,
             "extStart": 0,
             "extEnd": 0
@@ -106,7 +474,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 6.845669784401646,
+            "meanError": 6.844512222041053,
             "roundaboutSegs": 62,
             "extStart": 0,
             "extEnd": 0
@@ -119,6 +487,8 @@
       "line": "А5",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -135,7 +505,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.431663255102581,
+            "meanError": 7.431096841504259,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -156,7 +526,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.73964668065233,
+            "meanError": 7.738952307154042,
             "roundaboutSegs": 18,
             "extStart": 0,
             "extEnd": 0
@@ -169,6 +539,8 @@
       "line": "А6",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -185,7 +557,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.82192260494411,
+            "meanError": 8.819901911043086,
             "roundaboutSegs": 2,
             "extStart": 0,
             "extEnd": 0
@@ -206,7 +578,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.702040728548418,
+            "meanError": 9.699829803259092,
             "roundaboutSegs": 19,
             "extStart": 0,
             "extEnd": 0
@@ -219,6 +591,8 @@
       "line": "А8",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -235,7 +609,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.409214684425843,
+            "meanError": 7.407030627474326,
             "roundaboutSegs": 9,
             "extStart": 0,
             "extEnd": 0
@@ -256,7 +630,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 6.42540792898622,
+            "meanError": 6.423828932392802,
             "roundaboutSegs": 10,
             "extStart": 0,
             "extEnd": 0
@@ -269,6 +643,8 @@
       "line": "А10",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -285,7 +661,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.518586590206161,
+            "meanError": 7.517993577560672,
             "roundaboutSegs": 22,
             "extStart": 0,
             "extEnd": 0
@@ -306,7 +682,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.336744482338332,
+            "meanError": 7.335274825094909,
             "roundaboutSegs": 13,
             "extStart": 0,
             "extEnd": 0
@@ -319,6 +695,8 @@
       "line": "А11",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -335,7 +713,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.681651365313522,
+            "meanError": 8.68033164443511,
             "roundaboutSegs": 25,
             "extStart": 0,
             "extEnd": 0
@@ -356,7 +734,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 5.689003301521694,
+            "meanError": 5.688222466194913,
             "roundaboutSegs": 9,
             "extStart": 0,
             "extEnd": 0
@@ -369,6 +747,8 @@
       "line": "А12",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -385,7 +765,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 10.25091934383275,
+            "meanError": 10.24894922365993,
             "roundaboutSegs": 42,
             "extStart": 0,
             "extEnd": 0
@@ -406,7 +786,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.337300795057883,
+            "meanError": 8.336252839879448,
             "roundaboutSegs": 10,
             "extStart": 0,
             "extEnd": 0
@@ -419,6 +799,8 @@
       "line": "А15",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -426,7 +808,7 @@
           "variants": 1,
           "tripCount": 1,
           "stops": 21,
-          "lengthKm": 13.66,
+          "lengthKm": 13.65,
           "stats": {
             "observations": 21,
             "matched": 21,
@@ -435,7 +817,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.328533964570224,
+            "meanError": 7.327533828273731,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -456,7 +838,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.123203408477819,
+            "meanError": 7.122368889345293,
             "roundaboutSegs": 4,
             "extStart": 0,
             "extEnd": 0
@@ -469,6 +851,8 @@
       "line": "А16",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -485,7 +869,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.763997031713343,
+            "meanError": 9.761922266980337,
             "roundaboutSegs": 11,
             "extStart": 0,
             "extEnd": 0
@@ -506,7 +890,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 10.003147122762604,
+            "meanError": 10.000937277718673,
             "roundaboutSegs": 21,
             "extStart": 0,
             "extEnd": 0
@@ -519,6 +903,8 @@
       "line": "А18",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -535,7 +921,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.215210830583409,
+            "meanError": 8.213874253130795,
             "roundaboutSegs": 21,
             "extStart": 0,
             "extEnd": 0
@@ -556,7 +942,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.550688349697155,
+            "meanError": 7.549441190297863,
             "roundaboutSegs": 11,
             "extStart": 0,
             "extEnd": 0
@@ -569,6 +955,8 @@
       "line": "А19",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -585,7 +973,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.257339648594595,
+            "meanError": 9.254934296862626,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -606,7 +994,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.21517927437882,
+            "meanError": 9.213343723652489,
             "roundaboutSegs": 26,
             "extStart": 0,
             "extEnd": 0
@@ -619,6 +1007,8 @@
       "line": "А20",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -635,7 +1025,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.010737788789719,
+            "meanError": 9.009319386524425,
             "roundaboutSegs": 11,
             "extStart": 0,
             "extEnd": 0
@@ -656,7 +1046,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.569310810094352,
+            "meanError": 8.567714290098186,
             "roundaboutSegs": 21,
             "extStart": 0,
             "extEnd": 0
@@ -669,6 +1059,8 @@
       "line": "А23",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -685,7 +1077,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 10.727679789602174,
+            "meanError": 10.725138371771239,
             "roundaboutSegs": 6,
             "extStart": 0,
             "extEnd": 0
@@ -706,7 +1098,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 6.101660061574751,
+            "meanError": 6.100511742517413,
             "roundaboutSegs": 2,
             "extStart": 0,
             "extEnd": 0
@@ -719,6 +1111,8 @@
       "line": "А28",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -735,7 +1129,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 5.309255123293214,
+            "meanError": 5.308432361183203,
             "roundaboutSegs": 38,
             "extStart": 0,
             "extEnd": 0
@@ -756,7 +1150,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 11.742908258767248,
+            "meanError": 11.740903728649256,
             "roundaboutSegs": 26,
             "extStart": 0,
             "extEnd": 0
@@ -769,6 +1163,8 @@
       "line": "А30",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -776,7 +1172,7 @@
           "variants": 1,
           "tripCount": 1,
           "stops": 17,
-          "lengthKm": 8.63,
+          "lengthKm": 8.62,
           "stats": {
             "observations": 17,
             "matched": 17,
@@ -785,7 +1181,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.142665064101465,
+            "meanError": 8.141588241727788,
             "roundaboutSegs": 55,
             "extStart": 0,
             "extEnd": 0
@@ -806,7 +1202,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.882493467737614,
+            "meanError": 8.881009775926383,
             "roundaboutSegs": 30,
             "extStart": 0,
             "extEnd": 0
@@ -819,6 +1215,8 @@
       "line": "А33",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -835,7 +1233,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 12.3870790094044,
+            "meanError": 12.384624425642464,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -856,7 +1254,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.899967835646658,
+            "meanError": 9.898037757564765,
             "roundaboutSegs": 4,
             "extStart": 0,
             "extEnd": 0
@@ -869,6 +1267,8 @@
       "line": "А50",
       "mode": "bus",
       "color": "#0059a9",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -885,7 +1285,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.354388850836036,
+            "meanError": 8.353063784566094,
             "roundaboutSegs": 10,
             "extStart": 0,
             "extEnd": 0
@@ -897,7 +1297,7 @@
           "variants": 1,
           "tripCount": 1,
           "stops": 18,
-          "lengthKm": 10.56,
+          "lengthKm": 10.55,
           "stats": {
             "observations": 18,
             "matched": 18,
@@ -906,7 +1306,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 6.670504847392876,
+            "meanError": 6.669826815117787,
             "roundaboutSegs": 13,
             "extStart": 0,
             "extEnd": 0
@@ -919,6 +1319,8 @@
       "line": "Т2",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -935,7 +1337,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.505666534221513,
+            "meanError": 8.50462589704944,
             "roundaboutSegs": 13,
             "extStart": 0,
             "extEnd": 0
@@ -947,7 +1349,7 @@
           "variants": 1,
           "tripCount": 1,
           "stops": 15,
-          "lengthKm": 7.4,
+          "lengthKm": 7.39,
           "stats": {
             "observations": 15,
             "matched": 15,
@@ -956,7 +1358,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 8.22905939339842,
+            "meanError": 8.227988996035696,
             "roundaboutSegs": 10,
             "extStart": 0,
             "extEnd": 0
@@ -969,6 +1371,8 @@
       "line": "Т9",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -985,7 +1389,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.641907300741885,
+            "meanError": 7.640422311765182,
             "roundaboutSegs": 5,
             "extStart": 0,
             "extEnd": 0
@@ -1006,7 +1410,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 9.07795912693196,
+            "meanError": 9.075960292541328,
             "roundaboutSegs": 13,
             "extStart": 0,
             "extEnd": 0
@@ -1019,6 +1423,8 @@
       "line": "Т13",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -1035,7 +1441,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 11.686772891854615,
+            "meanError": 11.685001731080932,
             "roundaboutSegs": 4,
             "extStart": 0,
             "extEnd": 0
@@ -1056,7 +1462,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.665252646219606,
+            "meanError": 7.664326676738835,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -1069,6 +1475,8 @@
       "line": "Т21",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -1085,7 +1493,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.875288378100373,
+            "meanError": 7.874399984544239,
             "roundaboutSegs": 17,
             "extStart": 0,
             "extEnd": 0
@@ -1106,7 +1514,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.661381096080702,
+            "meanError": 7.660518610734939,
             "roundaboutSegs": 22,
             "extStart": 0,
             "extEnd": 0
@@ -1119,6 +1527,8 @@
       "line": "Т24",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -1135,7 +1545,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 7.647276835137622,
+            "meanError": 7.645776246920598,
             "roundaboutSegs": 0,
             "extStart": 0,
             "extEnd": 0
@@ -1156,7 +1566,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 13.106844787763087,
+            "meanError": 13.10398215895632,
             "roundaboutSegs": 0,
             "extStart": 0,
             "extEnd": 0
@@ -1169,6 +1579,8 @@
       "line": "Т27",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -1176,7 +1588,7 @@
           "variants": 1,
           "tripCount": 1,
           "stops": 18,
-          "lengthKm": 8.22,
+          "lengthKm": 8.21,
           "stats": {
             "observations": 18,
             "matched": 18,
@@ -1185,7 +1597,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 12.570575296372876,
+            "meanError": 12.568265100748455,
             "roundaboutSegs": 10,
             "extStart": 0,
             "extEnd": 0
@@ -1206,7 +1618,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 5.176318800350823,
+            "meanError": 5.1754233570368156,
             "roundaboutSegs": 9,
             "extStart": 0,
             "extEnd": 0
@@ -1219,6 +1631,8 @@
       "line": "Т29",
       "mode": "bus",
       "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
       "dirs": [
         {
           "dir": "0",
@@ -1235,7 +1649,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 10.273146413848842,
+            "meanError": 10.271313337820377,
             "roundaboutSegs": 23,
             "extStart": 0,
             "extEnd": 0
@@ -1256,7 +1670,7 @@
             "bridged": 0,
             "rawStretchCount": 0,
             "rawMeters": 0,
-            "meanError": 4.915831110211385,
+            "meanError": 4.915070535769528,
             "roundaboutSegs": 14,
             "extStart": 0,
             "extEnd": 0
