@@ -42,6 +42,370 @@
   ],
   "lines": [
     {
+      "line": "Т2",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Мототехника",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 15,
+          "lengthKm": 7.76,
+          "stats": {
+            "observations": 15,
+            "matched": 15,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.50462589704944,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 15,
+          "lengthKm": 7.39,
+          "stats": {
+            "observations": 15,
+            "matched": 15,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.227988996035696,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "2"
+    },
+    {
+      "line": "Т9",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.72,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.523049532577517,
+            "roundaboutSegs": 5,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 12,
+          "lengthKm": 6.4,
+          "stats": {
+            "observations": 12,
+            "matched": 12,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 9.075960292541328,
+            "roundaboutSegs": 13,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "9"
+    },
+    {
+      "line": "Т13",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.66,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 11.685001731080932,
+            "roundaboutSegs": 4,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №28",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.84,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.664326676738835,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "13"
+    },
+    {
+      "line": "Т21",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Гара Разпределителна",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.26,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.874399984544239,
+            "roundaboutSegs": 17,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.39,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 8.543145831547273,
+            "roundaboutSegs": 22,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "21"
+    },
+    {
+      "line": "Т24",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Блок №28",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 7.17,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 7.645776246920598,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "БОР",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.8,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 13.10398215895632,
+            "roundaboutSegs": 0,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "24"
+    },
+    {
+      "line": "Т27",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Захарен завод (Тутракан №26)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 18,
+          "lengthKm": 8.21,
+          "stats": {
+            "observations": 18,
+            "matched": 18,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 12.568265100748455,
+            "roundaboutSegs": 10,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Блок №48",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 17,
+          "lengthKm": 8.3,
+          "stats": {
+            "observations": 17,
+            "matched": 17,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.1754233570368156,
+            "roundaboutSegs": 9,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "27"
+    },
+    {
+      "line": "Т29",
+      "mode": "bus",
+      "color": "#149a3f",
+      "op": "ruse",
+      "opName": "Ruse — Общински Транспорт Русе",
+      "dirs": [
+        {
+          "dir": "0",
+          "headsign": "Захарен завод (Тутракан №26)",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 14,
+          "lengthKm": 6.55,
+          "stats": {
+            "observations": 14,
+            "matched": 14,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 10.271313337820377,
+            "roundaboutSegs": 23,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        },
+        {
+          "dir": "1",
+          "headsign": "Търговски комплекс",
+          "variants": 1,
+          "tripCount": 1,
+          "stops": 13,
+          "lengthKm": 6.64,
+          "stats": {
+            "observations": 13,
+            "matched": 13,
+            "noCandidates": 0,
+            "viterbiBreaks": 0,
+            "bridged": 0,
+            "rawStretchCount": 0,
+            "rawMeters": 0,
+            "meanError": 5.797697756581862,
+            "roundaboutSegs": 14,
+            "extStart": 0,
+            "extEnd": 0
+          }
+        }
+      ],
+      "label": "29"
+    },
+    {
       "line": "G1",
       "mode": "bus",
       "color": "#0059a9",
@@ -1319,370 +1683,6 @@
         }
       ],
       "label": "50"
-    },
-    {
-      "line": "Т2",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Мототехника",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 15,
-          "lengthKm": 7.76,
-          "stats": {
-            "observations": 15,
-            "matched": 15,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 8.50462589704944,
-            "roundaboutSegs": 13,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "БОР",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 15,
-          "lengthKm": 7.39,
-          "stats": {
-            "observations": 15,
-            "matched": 15,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 8.227988996035696,
-            "roundaboutSegs": 10,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "2"
-    },
-    {
-      "line": "Т9",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Търговски комплекс",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 13,
-          "lengthKm": 6.72,
-          "stats": {
-            "observations": 13,
-            "matched": 13,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 8.523049532577517,
-            "roundaboutSegs": 5,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "БОР",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 12,
-          "lengthKm": 6.4,
-          "stats": {
-            "observations": 12,
-            "matched": 12,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 9.075960292541328,
-            "roundaboutSegs": 13,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "9"
-    },
-    {
-      "line": "Т13",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Гара Разпределителна",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 14,
-          "lengthKm": 6.66,
-          "stats": {
-            "observations": 14,
-            "matched": 14,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 11.685001731080932,
-            "roundaboutSegs": 4,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "Блок №28",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 14,
-          "lengthKm": 6.84,
-          "stats": {
-            "observations": 14,
-            "matched": 14,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 7.664326676738835,
-            "roundaboutSegs": 17,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "13"
-    },
-    {
-      "line": "Т21",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Гара Разпределителна",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 13,
-          "lengthKm": 6.26,
-          "stats": {
-            "observations": 13,
-            "matched": 13,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 7.874399984544239,
-            "roundaboutSegs": 17,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "Търговски комплекс",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 13,
-          "lengthKm": 6.39,
-          "stats": {
-            "observations": 13,
-            "matched": 13,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 8.543145831547273,
-            "roundaboutSegs": 22,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "21"
-    },
-    {
-      "line": "Т24",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Блок №28",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 14,
-          "lengthKm": 7.17,
-          "stats": {
-            "observations": 14,
-            "matched": 14,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 7.645776246920598,
-            "roundaboutSegs": 0,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "БОР",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 13,
-          "lengthKm": 6.8,
-          "stats": {
-            "observations": 13,
-            "matched": 13,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 13.10398215895632,
-            "roundaboutSegs": 0,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "24"
-    },
-    {
-      "line": "Т27",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Захарен завод (Тутракан №26)",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 18,
-          "lengthKm": 8.21,
-          "stats": {
-            "observations": 18,
-            "matched": 18,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 12.568265100748455,
-            "roundaboutSegs": 10,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "Блок №48",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 17,
-          "lengthKm": 8.3,
-          "stats": {
-            "observations": 17,
-            "matched": 17,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 5.1754233570368156,
-            "roundaboutSegs": 9,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "27"
-    },
-    {
-      "line": "Т29",
-      "mode": "bus",
-      "color": "#149a3f",
-      "op": "ruse",
-      "opName": "Ruse — Общински Транспорт Русе",
-      "dirs": [
-        {
-          "dir": "0",
-          "headsign": "Захарен завод (Тутракан №26)",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 14,
-          "lengthKm": 6.55,
-          "stats": {
-            "observations": 14,
-            "matched": 14,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 10.271313337820377,
-            "roundaboutSegs": 23,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        },
-        {
-          "dir": "1",
-          "headsign": "Търговски комплекс",
-          "variants": 1,
-          "tripCount": 1,
-          "stops": 13,
-          "lengthKm": 6.64,
-          "stats": {
-            "observations": 13,
-            "matched": 13,
-            "noCandidates": 0,
-            "viterbiBreaks": 0,
-            "bridged": 0,
-            "rawStretchCount": 0,
-            "rawMeters": 0,
-            "meanError": 5.797697756581862,
-            "roundaboutSegs": 14,
-            "extStart": 0,
-            "extEnd": 0
-          }
-        }
-      ],
-      "label": "29"
     },
     {
       "line": "train",
